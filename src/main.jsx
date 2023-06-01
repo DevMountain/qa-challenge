@@ -4,7 +4,16 @@ import App from "./App.jsx";
 import "./index.css";
 import { worker } from "./mocks/browser";
 
-worker.start({ onUnhandledRequest: "bypass", quiet: true });
+if (window.location.pathname === "/login") {
+  window.location.pathname = "/login/";
+}
+
+worker.start({
+  onUnhandledRequest: "bypass",
+  serviceWorker: {
+    url: "/qa-challenge/mockServiceWorker.js",
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

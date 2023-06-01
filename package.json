@@ -30,5 +30,6 @@
   },
   "msw": {
     "workerDirectory": "public"
-  }
+  },
+  "homepage": "/qa-challenge/"
 }
